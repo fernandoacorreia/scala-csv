@@ -6,7 +6,7 @@ class GdpSummaryPrinter() {
     val gdpContentWidth = 23
 
     printSeparator(nameContentWidth, gdpContentWidth)
-    println(s"| ${rightPad("Country", nameContentWidth)} | ${leftPad("GDP (USs)", gdpContentWidth)} |")
+    println(s"| ${rightPad("Country", nameContentWidth)} | ${leftPad("GDP (US$)", gdpContentWidth)} |")
     printSeparator(nameContentWidth, gdpContentWidth)
     summarizedGdp.foreach { data =>
       println(

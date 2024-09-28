@@ -9,7 +9,9 @@ class GdpSummaryPrinter() {
     println(s"| ${rightPad("Country", nameContentWidth)} | ${leftPad("GDP (USs)", gdpContentWidth)} |")
     printSeparator(nameContentWidth, gdpContentWidth)
     summarizedGdp.foreach { data =>
-      println(s"| ${rightPad(data.countryName, nameContentWidth)} | ${leftPad(formattedGdp(data.gdp), gdpContentWidth)} |")
+      println(
+        s"| ${rightPad(data.countryName, nameContentWidth)} | ${leftPad(formattedGdp(data.gdp), gdpContentWidth)} |"
+      )
     }
     printSeparator(nameContentWidth, gdpContentWidth)
   }

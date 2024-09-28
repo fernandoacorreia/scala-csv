@@ -20,10 +20,10 @@ class GdpExtractorTest extends AnyFlatSpec with Matchers {
     val is = new ByteArrayInputStream(fakeData.getBytes(StandardCharsets.UTF_8))
     val result = extractor.extract(is)
     val expected = List(
-        CountryGdpData("Foo", 1236163044999.97),
-        CountryGdpData("Bar", 987654321),
-      )
-    result.toList should be (expected)
+      CountryGdpData("Foo", 1236163044999.97),
+      CountryGdpData("Bar", 987654321)
+    )
+    result should be(expected)
   }
 
   it should "Handle edge cases in CSV formatting" in new Fixture {
@@ -37,9 +37,9 @@ class GdpExtractorTest extends AnyFlatSpec with Matchers {
     val expected = List(
       CountryGdpData("Foo", 1236163044999.97),
       CountryGdpData("Bar", 987654321),
-      CountryGdpData("Baz, special case", 99),
+      CountryGdpData("Baz, special case", 99)
     )
-    result.toList should be (expected)
+    result should be(expected)
   }
 
   it should "Use zero if the GDP is not provided" in new Fixture {
@@ -49,9 +49,9 @@ class GdpExtractorTest extends AnyFlatSpec with Matchers {
     val is = new ByteArrayInputStream(fakeData.getBytes(StandardCharsets.UTF_8))
     val result = extractor.extract(is)
     val expected = List(
-      CountryGdpData("Foo", 0),
+      CountryGdpData("Foo", 0)
     )
-    result.toList should be (expected)
+    result should be(expected)
   }
 
   it should "throw an error if the first line does not contain column names" in new Fixture {

@@ -46,7 +46,7 @@ class CountrySelector {
       "Sub-Saharan Africa (excluding high income)",
       "Sub-Saharan Africa",
       "Upper middle income",
-      "World",
+      "World"
     )
     parsedData.filterNot(d => regionNames.contains(d.countryName))
   }

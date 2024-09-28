@@ -8,12 +8,13 @@ object Main {
     // Read and parse input data.
     val dataFileName = "data/API_NY.GDP.MKTP.CD_DS2_en_csv_v2_31795.csv"
     val is = new FileInputStream(dataFileName)
-    val parsedData = try {
-      val gdpExtractor = new GdpExtractor()
-      gdpExtractor.extract(is)
-    } finally {
-      is.close()
-    }
+    val parsedData =
+      try {
+        val gdpExtractor = new GdpExtractor()
+        gdpExtractor.extract(is)
+      } finally {
+        is.close()
+      }
 
     // Extract countries only
     val selector = new CountrySelector
